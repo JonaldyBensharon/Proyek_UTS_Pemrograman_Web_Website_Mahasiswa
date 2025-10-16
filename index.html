@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Proyek UTS - Pembuatan Website</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+        @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }}
+        .animate-fadeIn {
+        animation: fadeIn 1s ease-out forwards;
+        }
+        .backdrop {
+            background: rgba(0,0,0,0.45);
+            transition: opacity .25s ease;
+        }
+        @media print {
+            #menuButton, #sidebar, #sidebarBackdrop { display:none; }
+        }
+        </style>
+    </head>
+
+   <body class="bg-sky-50 text-slate-800 min-h-screen">
+        <button id="menuButton"
+                aria-controls="sidebar"
+                aria-expanded="false"
+                class="fixed top-4 left-4 z-50 px-4 py-3 bg-gray-400 text-white rounded-lg shadow-lg hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+        <span class="sr-only">Buka menu navigasi</span>
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        </button>
+
+
+        <div id="sidebarBackdrop" class="fixed inset-0 z-40 hidden"></div>
+       
+        <aside id="sidebar"
+            class="fixed inset-y-0 left-0 z-50 w-72 max-w-[85%] transform -translate-x-full bg-white shadow-xl p-6 overflow-y-auto transition-transform duration-300"
+            aria-hidden="true" aria-label="Navigasi halaman">
+      
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-lg font-semibold text-slate-800">Menu</h2>
+            <button id="closeSidebar" class="p-1.5 rounded-md text-slate-600 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+            <span class="sr-only">Tutup menu</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+            </button>
+        </div>
+
+        <nav>
+            <ul class="space-y-2">
+                <li><a class="block px-3 py-2 rounded-md text-slate-700 hover:bg-indigo-50 hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300" href="#biodata">Biodata</a></li>
+            <li><a class="block px-3 py-2 rounded-md text-slate-700 hover:bg-indigo-50 hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300" href="#pengenalan-web">Pengenalan Web</a></li>
+            <li><a class="block px-3 py-2 rounded-md text-slate-700 hover:bg-indigo-50 hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300" href="#pengenalan-html">Pengenalan HTML, CSS, JS & Tailwind</a></li>
+            <li><a class="block px-3 py-2 rounded-md text-slate-700 hover:bg-indigo-50 hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300" href="#tata-cara">Tata Cara Pembuatan Website</a></li>
+            <li><a class="block px-3 py-2 rounded-md text-slate-700 hover:bg-indigo-50 hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300" href="#kesan-pesan">Kesan & Pesan</a></li>
+            </ul>
+
+            <div class="border-t border-slate-200 my-6"></div>
+
+            <div class="text-sm text-slate-500">
+            <p class="mb-2">Keterangan:</p>
+            <ul class="list-disc pl-5 space-y-1">
+                <li>Klik menu untuk membuka atau menutup.</li>
+                <li>Gunakan tombol <kbd>Esc</kbd> untuk menutup menu.</li>
+            </ul>
+            </div>
+        </nav>
+        </aside>
+
+        <header class="relative flex flex-col items-center justify-center text-center h-[45vh] bg-gradient-to-r from-blue-700 to-blue-500 text-white shadow-lg rounded-b-3xl overflow-hidden">
+            <div class="animate-fadeInUp">
+                <h1 class="text-4xl md:text-5xl font-bold drop-shadow-lg tracking-wide">
+                Website Mahasiswa
+                </h1>
+                <p class="mt-3 text-xl md:text-2xl font-medium opacity-90 tracking-wide">
+                Implementasi HTML, CSS, JavaScript, dan Tailwind CSS
+                </p>
+            </div>
+        </header>
+
+        <div id="mainWrapper" class="transition-opacity duration-150">
+        <main class="max-w-6xl mx-auto px-6 py-8 space-y-12">
+        <section id="biodata" class="max-w-4xl mx-auto my-10 p-8 bg-white dark:bg-slate-900 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 transition-colors duration-500">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-800 dark:text-slate-100 mb-8">
+                Biodata
+            </h2>
+
+            <div class="flex flex-col items-center">
+                <div id="photoFrame"
+                class="w-60 h-60 md:w-64 md:h-64 rounded-full overflow-hidden shadow-xl border-4 border-slate-300 dark:border-slate-600 hover:scale-105 transition-transform duration-500 cursor-pointer">
+                <img src="pasfoto.jpg" alt="Foto Diri" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <div class="my-8 border-t-2 border-slate-300 dark:border-slate-600 w-4/5 mx-auto"></div>
+
+            <div class="px-4 md:px-12">
+                <h3 class="text-2xl font-semibold text-center text-slate-800 dark:text-slate-100 mb-6">
+                Jonaldy Bensharon Simamora
+                </h3>
+
+                <dl class="space-y-2 text-base text-slate-700 dark:text-slate-300">
+                <div class="flex">
+                    <dt class="w-28 font-semibold">NIM</dt>
+                    <dd>241401074</dd>
+                </div>
+                <div class="flex">
+                    <dt class="w-28 font-semibold">KOM</dt>
+                    <dd>B</dd>
+                </div>
+                <div class="flex">
+                    <dt class="w-28 font-semibold">Alamat</dt>
+                    <dd>Jl. Mekar, Deli Serdang, Sumatera Utara</dd>
+                </div>
+                </dl>
+            </div>
+
+            <div id="overlay" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+                <img id="enlargedPhoto" src="Pasfoto1.jpg" alt="Foto Diri Besar"
+                class="w-80 h-80 md:w-[28rem] md:h-[28rem] lg:w-[32rem] lg:h-[32rem] rounded-full object-cover border-4 border-white shadow-2xl transition-transform duration-300">
+            </div>
+        </section>
+
+        <section class="max-w-4xl mx-auto my-10 p-10 bg-white dark:bg-slate-900 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-700 opacity-0 translate-y-4 animate-fadeIn">
+            <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-6">Tentang Saya</h2>
+
+            <div class="my-8 border-t-2 border-slate-300 dark:border-slate-600 w-1/1 mx-auto"></div>
+
+            <div class="space-y-4 text-slate-700 dark:text-slate-300 leading-relaxed text-justify">
+                <p class="indent-8">
+                Hai! Perkenalkan nama saya adalah Jonaldy Bensharon Simamora. Saya merupakan seorang mahasiswa yang 
+                belajar di Universitas Sumatera Utara (USU) dengan program studi Ilmu Komputer. Saat ini, saya sedang menjalani semester ketiga dari program studi tersebut. Laman website ini ditujukan
+                sebagai media pembelajaran awal saya dalam kelas Pemrograman Web.
+                </p>
+                <p class="indent-8">
+                Motivasi saya dalam memilih Ilmu Komputer sebagai program studi saya, yaitu 
+                keinginan untuk berkarir secara profesional dalam bidang pemrograman dan ikut berkontribusi dalam
+                meningkatkan kemajuan teknologi serta menyelesaikan permasalahan di berbagai aspek kehidupan masyarakat.
+                </p>
+            </div>
+        </section>
+
+        <section class="max-w-4xl mx-auto my-10 p-10 bg-white dark:bg-slate-900 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-700 opacity-0 translate-y-4 animate-fadeIn">
+            <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-6">Deskripsi</h2>
+
+            <div class="my-8 border-t-2 border-slate-300 dark:border-slate-600 w-1/1 mx-auto"></div>
+
+            <div class="space-y-6 text-slate-700 dark:text-slate-300 leading-relaxed text-justify">
+                <p class="indent-8">
+                    Di luar kegiatan pembelajaran, saya cukup rutin membaca. Saya tidak banyak memilih
+                    bahan bacaan saya sehingga saya akan membaca apa pun dan dari mana pun jika memungkinkan. Namun,
+                    saya mendapati diri saya seringkali singgah pada berbagai forum atau media diskusi untuk melihat berita dan cerita,
+                    menemukan apa yang sebenarnya terjadi pada dunia dan penghuninya. Dari kegiatan tersebut, saya merasa bahwa
+                    membaca adalah karunia. Mengenali pikiran dan ide dari masa lampau, 
+                    mengetahui cara khalayak dari berbagai kalangan untuk beradaptasi, serta memahami bahwa setiap kisah
+                    dapat terkesan berbeda berdasarkan sudut pandang naratornya. Kemampuan itu sungguh merupakan sebuah keajaiban.
+                </p>
+
+                <p class="indent-8">
+                    Berdasarkan pengalaman dalam membaca, saya mendapati suatu kutipan yang terasa layak diucapkan oleh setiap orang.
+                </p>
+
+                <blockquote class="bg-gradient-to-r from-blue-50 to-indigo-100 dark:bg-slate-800/70 border-l-4 border-indigo-700 dark:border-blue-500 rounded-xl p-6 my-6 shadow-sm text-center">
+                    <p class="italic font-serif text-blue-600 dark:text-blue-400 text-xl mb-2">
+                        "Ad Maiora Natus Sum"
+                    </p>
+                    <p class="text-slate-500 dark:text-slate-300">
+                        'Aku dilahirkan untuk hal-hal yang besar'
+                    </p>
+                </blockquote>
+
+                <p class="indent-8">
+                    Saya cukup meyakini bahwa setiap orang memiliki perannya masing-masing dalam dunia. Kisah manusia yang 
+                    terkesan tidak signifikan sekali pun memiliki caranya sendiri untuk memengaruhi sejarah dan membentuk semesta.
+                    Oleh sebab itu, setiap orang hadir dalam kehidupan ini untuk tujuan yang besar.
+                </p>
+            </div>
+        </section>
+
+        <section class="max-w-6xl mx-auto my-10 p-8 bg-white dark:bg-slate-900 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-700 opacity-0 translate-y-4 animate-fadeIn">
+        <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-6">
+            Jadwal Perkuliahan
+        </h2>
+
+        <div class="my-8 border-t-2 border-slate-300 dark:border-slate-600 w-1/1 mx-auto"></div>
+
+        <div class="overflow-x-auto rounded-lg">
+            <table class="min-w-full border border-slate-400 dark:border-slate-600 border-collapse text-center text-sm md:text-base text-slate-700 dark:text-slate-300">
+            <thead>
+                <tr class="bg-blue-600 text-white text-center">
+                <th class="px-4 py-3 border border-slate-400 dark:border-slate-600">Hari</th>
+                <th class="px-4 py-3 border border-slate-400 dark:border-slate-600">Waktu</th>
+                <th class="px-4 py-3 border border-slate-400 dark:border-slate-600">Mata Kuliah</th>
+                <th class="px-4 py-3 border border-slate-400 dark:border-slate-600">Ruangan</th>
+                <th class="px-4 py-3 border border-slate-400 dark:border-slate-600">Dosen Pengampu</th>
+                <th class="px-4 py-3 border border-slate-400 dark:border-slate-600">Pengajar</th>
+                </tr>
+            </thead>
+
+            <tbody>
+          <tr class="even:bg-slate-100 dark:even:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors border border-slate-400 dark:border-slate-600">
+            <td rowspan="2" class="px-4 py-3 font-semibold border border-slate-400 dark:border-slate-600">Senin</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">10.30 - 12.10</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">Desain Interaksi</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">C-101</td>
+            <td colspan="2" class="px-4 py-3 border border-slate-400 dark:border-slate-600">Fanindia Purnamasari, S.TI., M.IT.</td>
+          </tr>
+
+          <tr class="even:bg-slate-100 dark:even:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors border border-slate-400 dark:border-slate-600">
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">13.50 - 15.30</td>
+            <td class="px-4 py-3 italic border border-slate-400 dark:border-slate-600">Basic Listening</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">Lab. Bahasa</td>
+            <td colspan="2" class="px-4 py-3 border border-slate-400 dark:border-slate-600">Dr. Rusdi Noor Rosa, S.S., M.Hum.</td>
+          </tr>
+
+          <tr class="even:bg-slate-100 dark:even:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors border border-slate-400 dark:border-slate-600">
+            <td rowspan="2" class="px-4 py-3 font-semibold border border-slate-400 dark:border-slate-600">Selasa</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">08.50 - 10.30</td>
+            <td class="px-4 py-3 italic border border-slate-400 dark:border-slate-600">IELTS Preparation</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">D-101</td>
+            <td colspan="2" class="px-4 py-3 border border-slate-400 dark:border-slate-600">Drs. Yulianus Harefa, GradDipEd TESOL., MEd TESOL</td>
+          </tr>
+
+          <tr class="even:bg-slate-100 dark:even:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors border border-slate-400 dark:border-slate-600">
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">13.00 - 14.30</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">Praktikum Basis Data</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">Lab. Pemrograman 1</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">Dr. Dewi Sartika Br Ginting, S.Kom., M.Kom.</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">Diva Syakirahana</td>
+          </tr>
+
+          <tr class="even:bg-slate-100 dark:even:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors border border-slate-400 dark:border-slate-600">
+            <td rowspan="2" class="px-4 py-3 font-semibold border border-slate-400 dark:border-slate-600">Rabu</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">10.30 - 13.00</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">Basis Data</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">D-106</td>
+            <td colspan="2" class="px-4 py-3 border border-slate-400 dark:border-slate-600">
+              Dr. Dewi Sartika Br Ginting, S.Kom., M.Kom.<br>Insidini Fawwaz, M.Kom.
+            </td>
+          </tr>
+
+          <tr class="even:bg-slate-100 dark:even:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors border border-slate-400 dark:border-slate-600">
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">13.50 - 15.30</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">Wirausaha Digital</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">D-101</td>
+            <td colspan="2" class="px-4 py-3 border border-slate-400 dark:border-slate-600">
+              Dr. T. Henny Febriana Harumy, S.Kom., M.Kom.<br>Dr. Fauzan Nurahmadi, S.Kom., M.Cs.
+            </td>
+          </tr>
+
+          <tr class="even:bg-slate-100 dark:even:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors border border-slate-400 dark:border-slate-600">
+            <td rowspan="3" class="px-4 py-3 font-semibold border border-slate-400 dark:border-slate-600">Kamis</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">08.00 - 10.30</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">Struktur Data</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">D-105</td>
+            <td colspan="2" class="px-4 py-3 border border-slate-400 dark:border-slate-600">
+              Anandhini Medianty Nababan, S.Kom., M.T.<br>Insidini Fawwaz, M.Kom.
+            </td>
+          </tr>
+
+          <tr class="even:bg-slate-100 dark:even:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors border border-slate-400 dark:border-slate-600">
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">10.30 - 13.00</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">Pemrograman Web</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">D-105</td>
+            <td colspan="2" class="px-4 py-3 border border-slate-400 dark:border-slate-600">
+              Dr. Dewi Sartika Br Ginting, S.Kom., M.Kom.<br>Nurrahmadayeni, M.Kom.
+            </td>
+          </tr>
+
+          <tr class="even:bg-slate-100 dark:even:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors border border-slate-400 dark:border-slate-600">
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">13.00 - 15.30</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">Kecerdasan Buatan</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">D-101</td>
+            <td colspan="2" class="px-4 py-3 border border-slate-400 dark:border-slate-600">
+              Prof. Drs. Poltak Sihombing, M.Kom., Ph.D<br>Dr. Amalia, S.T., M.T.
+            </td>
+          </tr>
+
+          <tr class="even:bg-slate-100 dark:even:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors border border-slate-400 dark:border-slate-600">
+            <td rowspan="2" class="px-4 py-3 font-semibold border border-slate-400 dark:border-slate-600">Jumat</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">08.00 - 09.40</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">Praktikum Pemrograman Web</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">Lab. Pemrograman 3</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">Dr. Dewi Sartika Br Ginting, S.Kom., M.Kom.</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">Rizky Berutu</td>
+          </tr>
+
+          <tr class="even:bg-slate-100 dark:even:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors border border-slate-400 dark:border-slate-600">
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">10.30 - 12.10</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">Praktikum Struktur Data</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">Lab. Pemrograman 1</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">Anandhini Medianty Nababan, S.Kom., M.T.</td>
+            <td class="px-4 py-3 border border-slate-400 dark:border-slate-600">Harry Tamara</td>
+          </tr>
+        </tbody>
+            </table>
+        </div>
+        </section>
+
+        <section id="pengenalan-web" class="max-w-6xl mx-auto my-10 p-8 bg-white dark:bg-slate-900 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-700 opacity-0 translate-y-4 animate-fadeIn">
+            <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-6">Pengenalan Web</h2>
+
+            <div class="my-8 border-t-2 border-slate-300 dark:border-slate-600 w-1/1 mx-auto"></div>
+            <p class="text-justify leading-relaxed text-slate-700 dark:text-slate-300">Sebelum membahas tentang kegiatan pemrograman Web, mari kita mengulik secara ringkas apa itu web sebenarnya dan bagaimana cara kerjanya.
+            </p>
+            <h3 class="text-xl font-semibold text-slate-700 dark:text-slate-200 mt-6 mb-3">World Wide Web (WWW)</h3>
+                <p class="text-justify leading-relaxed text-slate-700 dark:text-slate-300 indent-8">
+                    World Wide Web (WWW), sering disebut secara umum sebagai web, merupakan suatu sistem yang berisikan kumpulan halaman/file yang saling berhubungan
+                    melalui tautan (hyperlink) dan dapat diakses melalui internet. Halaman-halaman tersebut saling terhubung membentuk jaring raksasa sehingga layanan yang
+                    berjalan di atas internet ini dinamakan web (jaring). Setiap halaman web berisikan satu dokumen HTML yang dapat ditampilkan oleh browser.
+                </p>
+                <p class="text-justify leading-relaxed text-slate-700 dark:text-slate-300 indent-8">
+                    Sekumpulan halaman web yang saling terhubung dan dikelola di satu tempat (server) yang sama dapat disebut sebagai situs web (website). Satu website dapat terdiri atas satu atau beberapa halaman web.
+                </p>
+                <p>Sebagai contoh:</p>
+                <ul class="list-disc list-inside ml-8 text-slate-700 dark:text-slate-300">
+                    <li><span class="font-medium text-blue-700 dark:text-blue-400">https://wikipedia.org/</span> merupakan situs web yang berisikan beberapa halaman web.</li>
+                    <li><span class="font-medium text-blue-700 dark:text-blue-400">https://wikipedia.org/gajah</span> merupakan suatu halaman web pada situs tersebut.</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-slate-700 dark:text-slate-200 mt-6 mb-3">Uniform Search Locator (URL)</h3>
+                <p class="text-justify leading-relaxed text-slate-700 dark:text-slate-300 indent-8">
+                    Uniform Search Locator (URL) merupakan alamat lengkap dari halaman, file, gambar, atau sumber lainnya di web. URL dapat memberitahu browser mengenai cara berkomunikasi dengan server,
+                    nama website, serta lokasi file di server.
+                </p>
+                <p>Misalkan, terdapat URL:</p>
+                <i class="block text-slate-600 dark:text-slate-400 ml-8">https://perabotmu.com/katalog/produk.html?id=50#keterangan</i>
+                <p>Bagian-bagian dari URL tersebut, yaitu:</p>
+                <ul class="list-disc list-inside ml-8 text-slate-700 dark:text-slate-300">
+                    <li><code>https://</code> → protokol atau cara browser berkomunikasi dengan server yang menyimpan halaman web.</li>
+                    <li><code>perabotmu.com</code> → nama domain atau website yang dituju.</li>
+                    <li><code>katalog/produk.html</code> → path atau lokasi file di dalam server.</li>
+                    <li><code>?id=50</code> → query atau parameter yang dikirim ke server, misalnya meminta produk nomor 50.</li>
+                    <li><code>#keterangan</code> → fragment atau bagian halaman web yang dituju.</li>
+                </ul>
+
+
+                <h3 class="text-xl font-semibold text-slate-700 dark:text-slate-200 mt-6 mb-3">HTTP/HTTPS</h3>
+                <p class="text-justify leading-relaxed text-slate-700 dark:text-slate-300 indent-8">
+                    Hyper Text Transfer Protocol (HTTP) merupakan protokol yang mengatur bagaimana browser dan server berinteraksi untuk kegiatan meminta atau mengirim halaman. HTTP akan mengatur format pesan permintaan (request) dan
+                    balasan (response).
+                </p>
+                <p>Contoh sederhananya, yaitu:</p>
+                <ul class="list-disc list-inside ml-8 text-slate-700 dark:text-slate-300">
+                    <li>Browser mengirim HTTP request: <em>Berikan saya isi dari /katalog/produk.html</em></li>
+                    <li>Server memberikan HTTP response: <em>Berikut merupakan isi dari /katalog/produk.html</em></li>
+                </ul>
+                <p class="text-justify leading-relaxed text-slate-700 dark:text-slate-300 indent-8">
+                    HTTPS merupakan versi HTTP dengan keamanan yang lebih tinggi. HTTPS mengenkripsi komunikasi agar pihak ketiga tidak bisa mengubah data yang diminta dan dikirimkan.
+                </p>
+
+                <h3 class="text-xl font-semibold text-slate-700 dark:text-slate-200 mt-6 mb-3">IP Address dan Domain</h3>
+                <p class="text-justify leading-relaxed text-slate-700 dark:text-slate-300 indent-8">
+                    Di dalam web, terdapat dua jenis entitas, yaitu:
+                </p>
+                <ul class="list-disc list-inside ml-8 text-slate-700 dark:text-slate-300">
+                    <li><span class="font-medium">Klien</span> — perangkat pengguna seperti komputer, handphone, atau browser. Klien meminta layanan atau informasi dari komputer lain.</li>
+                    <li><span class="font-medium">Server</span> — komputer khusus yang menyediakan informasi atau layanan. Server dapat berisikan beberapa situs web dan memberikan layanan kepada klien yang memintanya.</li>
+                </ul>
+                <p class="text-justify leading-relaxed text-slate-700 dark:text-slate-300 indent-8">
+                    Komputer (server) mendiami suatu alamat pada jaringan web berupa rangkaian angka unik yang digunakan untuk berinteraksi dengan komputer lain. Contoh IP address dengan format IPv4: <code>203.0.113.5</code>.
+                    Karena penggunaan alamat numerik sulit diingat, domain digunakan sebagai nama unik yang lebih mudah dikenali oleh manusia.
+                </p>
+                <p>Misalkan:</p>
+                <ul class="list-disc list-inside ml-8 text-slate-700 dark:text-slate-300">
+                    <li>Alamat IP = 203.0.113.5</li>
+                    <li>Domain = katalogmu.com</li>
+                </ul>
+                <p class="text-justify leading-relaxed text-slate-700 dark:text-slate-300 indent-8">
+                    Namun, komputer tidak mengerti alamat yang tidak dalam bentuk numerik. Untuk menangani hal ini, <span class="font-medium">Domain Name System (DNS)</span> digunakan sebagai ensiklopedia alamat di internet yang
+                    menerjemahkan nama domain menjadi alamat IP.
+                </p>
+
+                <p>Secara sederhana, alur akses alamat pada web adalah sebagai berikut:</p>
+                <ol class="list-decimal list-inside ml-8 text-slate-700 dark:text-slate-300">
+                    <li>Pengguna mencari situs web di browser dengan memasukkan domain, misalnya <code>www.katalogmu.com</code>.</li>
+                    <li>Browser bertanya pada DNS server, apa alamat IP dari domain tersebut.</li>
+                    <li>DNS memberikan alamat IP, misalnya <code>203.0.113.5</code>.</li>
+                    <li>Browser menghubungi server pada alamat tersebut untuk meminta file HTML.</li>
+                    <li>Server mengirim file HTML tersebut.</li>
+                    <li>Browser membaca file HTML dan menampilkannya sebagai halaman web yang dapat dibaca manusia.</li>
+                </ol>
+
+                <h3 class="text-xl font-semibold text-slate-700 dark:text-slate-200 mt-6 mb-3">Browser</h3>
+                <p class="text-justify leading-relaxed text-slate-700 dark:text-slate-300 indent-8">
+                    Browser merupakan program yang digunakan untuk menjelajahi jaringan internet. Browser dapat mengakses halaman web dan menampilkan isi halaman tersebut dalam bentuk yang dapat dipahami oleh manusia.
+                </p>
+                <p>Browser memiliki tiga tugas utama, yaitu:</p>
+                <ul class="list-disc list-inside ml-8 text-slate-700 dark:text-slate-300">
+                    <li><span class="font-medium">Fetch</span> — mengambil informasi seperti halaman web atau gambar dari server.</li>
+                    <li><span class="font-medium">Interpret</span> — menafsirkan file HTML, CSS, JavaScript, dan lainnya.</li>
+                    <li><span class="font-medium">Render</span> — menampilkan konten tersebut sebagai halaman interaktif yang dapat dipahami manusia.</li>
+                </ul>
+
+                <p>Secara umum, alur pencarian konten pada browser adalah sebagai berikut:</p>
+                <ol class="list-decimal list-inside ml-8 text-slate-700 dark:text-slate-300">
+                    <li>Pengguna memasukkan konten yang ingin dicari dalam kolom penelusuran browser.</li>
+                    <li>Browser mengecek apakah input berupa URL lengkap atau kata kunci pencarian.</li>
+                    <li>Jika hanya kata kunci, browser mengirimkannya ke mesin pencari.</li>
+                    <li>Mesin pencari mencari halaman-halaman web yang mengandung kata kunci tersebut.</li>
+                    <li>Mesin pencari menampilkan hasil situs web yang relevan.</li>
+                    <li>Ketika pengguna mengklik hasil, browser bertanya ke DNS untuk menerjemahkan domain ke IP.</li>
+                    <li>DNS mengembalikan alamat IP ke browser.</li>
+                    <li>Browser mengirim permintaan HTTP/HTTPS ke server terkait.</li>
+                    <li>Server mengirim file HTML sebagai respons.</li>
+                    <li>Browser membaca HTML dan memuat CSS, JS, serta aset lain.</li>
+                    <li>Browser membangun Document Object Model (DOM) dan menampilkan halaman tersebut ke pengguna.</li>
+                </ol>
+                </section>
+
+        <section id="pengenalan-html" class="max-w-6xl mx-auto my-10 p-8 bg-white dark:bg-slate-900 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-700 opacity-0 translate-y-4 animate-fadeIn">
+            <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-6">
+                Pengenalan HTML, CSS, Javascript, dan Tailwind CSS</h2>
+                <div class="my-8 border-t-2 border-slate-300 dark:border-slate-600 w-1/1 mx-auto"></div>
+                
+                <div class="space-y-4">
+                <h3 class="text-xl font-semibold text-slate-700 dark:text-slate-200 mt-6 mb-3">
+                    HTML
+                </h3>
+
+                <h4 class="text-lg font-semibold text-slate-600 dark:text-slate-300 mt-4 mb-2 border-l-4 border-blue-400 pl-3">
+                    Pengenalan HTML
+                </h4>
+
+                <p class="indent-8">Berdasarkan pembahasan sebelumnya, diketahui bahwa web terdiri atas halaman-halaman informasi yang dapat diakses melalui browser.
+                    Namun, browser tidak dapat menebak bagaimana isi suatu halaman ditampilkan kepada pengguna (klien). Browser membutuhkan petunjuk yang menyatakan aturan 
+                    penampilan konten. Petunjuk ini diberikan oleh HTML.
+                </p>
+
+                <p class="indent-8">Hyper Text Markup Language (HTML) merupakan bahasa penanda (markup) yang digunakan untuk memberikan
+                    struktur, makna, dan hubungan antarbagian dalam sebuah halaman web.
+                    Jika halaman web diibaratkan sebagai rumah, HTML merupakan pondasi atau struktur dari rumah tersebut. HTML menentukan apa saja yang ada di rumah (halaman web) dan bagaimana hubungannya.
+                </p>
+
+                <p class="indent-8">HTML merupakan bahasa markup (penanda) yang berbeda dengan bahasa pemrograman umum yang memiliki konsep perhitungan dan pengaturan logika jalanya program. HTML digunakan untuk
+                    menyusun struktur dan isi dari suatu halaman. Istilah <i>markup</i>
+                    berasal dari dunia percetakan tradisional. Sebelum adanya komputer, editor naskah akan menandai
+                    bagian-bagian tertentu dengan tinta merah atau tanda tertentu untuk memberitahukan bagian yang harus
+                    dicetak tebal, bagian yang menjadi judul, bagian yang menjadi paragraf baru, dan memberikan aturan percetakan lainnya.
+                    Ketika komputer digunakan pada bidang penerbitan, konsep markup (penanda) tetap digunakan melalui kode berbentuk tag
+                    yang membungkus teks. Maka, <i>markup</i> dapat diartikan sebagai cara memberi makna pada teks agar komputer mengetahui
+                    bagaiman cara menampilkannya dengan benar.
+                </p>
+
+                <p>Contoh markup sederhana, yaitu</p>
+
+                <pre class="bg-slate-100 dark:bg-slate-700 p-3 rounded-md overflow-x-auto text-sm">
+        <code>&lt;p&gt;Ini adalah sebuah paragraf&lt;/p&gt;</code>
+                </pre>
+
+                <p class="indent-8">
+                    Ketika pengguna (klien) mengakses situs, server mengirim file berisi teks HTML ke browser.
+                    Browser akan bekerja sebagai penerjemah dengan membaca file itu secara berurutan, mengenali setiap tag, lalu 
+                    menyusunnya menjadi tampilan visual yang dapat dimengerti oleh manusia.
+                </p>
+
+                <p class="indent-8">Meskipun banyak teknologi baru bermunculan, HTML tetap menjadi fondasi utama semua halaman web.
+                    Hal ini dikarenakan sebagian besar browser di dunia mengenali HTML. HTML memiliki berbagai fitur yang
+                    memungkinkan pengguna difabel dalam memahami halaman web serta meningkatkan kinerja Search Engine Optimization (SEO). Selain itu,
+                    HTML memiliki konsep dasar yang sama, meskipun terus berevolusi dari waktu ke waktu sehingga mudah diterapkan.
+                </p>
+
+                <h4 class="text-lg font-semibold text-slate-600 dark:text-slate-300 mt-6 mb-2 border-l-4 border-blue-400 pl-3">
+                    Struktur Dasar HTML
+                </h4>
+
+                <p class="indent-8">Setiap halaman web memiliki struktur dasar yang sama, meskipun isi kontenya berbeda. Kerangka minimal dari suatu dokumen HTML dapat dinyatakan sebagai berikut.</p>
+
+                <pre class="bg-slate-100 dark:bg-slate-700 p-4 rounded-md overflow-x-auto text-sm">
+        <code>&lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+            &lt;head&gt;
+                &lt;title&gt;Judul Halaman&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;h1&gt;Halo dunia!&lt;/h1&gt;
+            &lt;/body&gt;
+        &lt;/html&gt;
+        </code>
+                </pre>
+
+                <p class="indent-8">Pada HTML, tag merupakan penanda/label yang memberi tahu browser
+                    bagaimana memperlakukan atau memberi makna pada teks yang ada di dalamnya. HTML dibangun oleh elemen-elemen yang mengatur penyusunan konten halaman. Elemen terdiri dari tag pembuka, isi, dan tag penutup.
+                    Pada kode sumber sebelumnya, terdapat baris kode seperti berikut.
+                </p>
+
+                <pre class="bg-slate-100 dark:bg-slate-700 p-3 rounded-md overflow-x-auto text-sm">
+        <code>&lt;h1&gt;Halo dunia!&lt;/h1&gt;</code>
+                </pre>
+
+                <p class="indent-8">Baris ini memberitahu browser untuk menampilkan teks "Halo dunia!" sebagai judul utama dari halaman web.</p>
+
+                <ul class="list-disc list-inside ml-6 space-y-1">
+                    <li>&lt;p&gt; merupakan tag pembuka yang menandai awal dari judul utama.</li>
+                    <li>&lt;/p&gt; merupakan tag penutup yang menandai akhir dari judul utama.</li>
+                    <li>"Halo dunia!" merupakan isi yang yang diatur menjadi judul utama oleh tag tersebut.</li>
+                </ul>
+
+                <p class="indent-8">Elemen-elemen dasar pada dokumen HTML, yaitu:</p>
+
+                <ol class="list-decimal list-inside ml-6 space-y-3">
+                    <li>
+                        &lt;!DOCTYPE html&gt;<br>
+                        Baris ini merupakan deklarasi tipe dokumen yang bertujuan memberi tahu browser bahwa dokumen yang ditulis menggunakan format HTML versi modern (HTML5). Elemen ini bukan bagian dari isi halaman sehingga tidak ditampilkan ke layar pengguna. Penulisan kode tersebut tidak wajib, tetapi cukup penting untuk diikutsertakan untuk mencegah tampilan yang berbeda pada browser tertentu yang menggunakan format lama secara default.
+                    </li>
+                    <li>
+                        &lt;html&gt; ... &lt;/html&gt;<br>
+                        Baris ini merupakan deklarasi awal dan akhir dari dokumen HTML. Semua isi serta identitas halaman berada di dalam tag &lt;html&gt; beserta pasangannya.
+                    </li>
+                    <li>
+                        &lt;head&gt; ... &lt;/head&gt;<br>
+                        Bagian ini merupakan identitas dari halaman web yang tidak ditampilkan sebagai konten dari halaman. Umumnya, head berisi:
+                        <ul class="list-disc list-inside ml-6 mt-1 space-y-1">
+                            <li>&lt;title&gt; ... &lt;/title&gt;, yaitu judul dari halaman web yang ditampilkan pada tab browser.</li>
+                            <li>&lt;meta&gt;, yaitu informasi tambahan yang mengatur bahasa, pengkodean karakter, serta penampilan pada perangkat tertentu.</li>
+                            <li>&lt;link&gt;, yaitu tautan yang menyambungkan HTML dengan file CSS.</li>
+                            <li>&lt;script&gt;, yaitu tautan yang menyambungkan HTML dengan file JavaScript.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        &lt;body&gt; ... &lt;/body&gt;<br>
+                        Elemen ini merupakan bagian inti dari halaman web yang berupa konten yang terlihat pada layar pengguna. Di dalam &lt;body&gt;, pemrogram dapat menulis teks, gambar, tautan, daftar, tabel, dan elemen-elemen lainnya yang perlu ditampilkan pada layar.
+                    </li>
+                </ol>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-slate-700 dark:text-slate-200 mt-6 mb-3">CSS</h3>
+
+                <h4 class="text-lg font-semibold text-slate-600 dark:text-slate-300 mt-4 mb-2">Pengenalan CSS</h4>
+                <p class="indent-8">
+                    Cascading Style Sheets (CSS) merupakan bahasa yang digunakan untuk mengatur tampilan visual halaman web, baik itu warna, ukuran 
+                    font, jarak, tata letak, latar belakang, dan elemen visual lainnya. Jika halaman web diibaratkan sebagai rumah dan HTML merupakan
+                    fondasi atau struktur dari rumah tersebut, CSS merupakan cat, furnitur, tata letak, serta hiasan yang membuat rumah terlihat rapi dan menarik. 
+                    CSS mengatur bagaimana isi yang dinyatakan pada HTML diperlihatkan kepada pengguna.
+                </p>
+
+                <p class="indent-8">
+                    Sebelum adanya CSS, pengaturan tampilan dilakukan langsung di HTML melalui atribut style yang
+                    menyebabkan kode sulit diorganisasi dan tidak fleksibel. Penggunaan CSS memiliki keunggulan, yaitu meningkatkan
+                    efektivitas penyusunan struktur dan pengaturan tampilan layar dengan memisahkan dokumen yang berisi 
+                    struktur di HTML dan tampilan di CSS. Selain itu, CSS memungkinkan pengaturan banyak elemen sekaligus yang meningkatkan efisiensi waktu.
+                </p>
+
+                <h4 class="text-lg font-semibold text-slate-600 dark:text-slate-300 mt-4 mb-2">Struktur Dasar CSS</h4>
+                <p class="indent-8">Secara umum, pengaturan tampilan menggunakan CSS dibentuk melalui struktur berikut.</p>
+
+                <pre class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg overflow-x-auto">
+                    <code>
+                selector {
+                    property: value;
+                }
+                    </code>
+                </pre>
+
+                <p class="indent-8">Komponen-komponen dasar dari CSS tersebut, yaitu:</p>
+                <ul class="list-disc list-inside ml-6 space-y-1">
+                    <li>Selector, yang digunakan untuk memilih elemen HTML yang akan diberi gaya.</li>
+                    <li>Property, yaitu atribut visual yang ingin diatur. Contohnya: color, font-size, dll.</li>
+                    <li>Value, yaitu nilai dari property tersebut.</li>
+                </ul>
+
+                <h4 class="text-lg font-semibold text-slate-600 dark:text-slate-300 mt-4 mb-2">Metode Implementasi CSS pada HTML</h4>
+                <ul class="list-disc list-inside ml-6 space-y-4">
+
+                    <li>
+                        <span class="font-medium">Inline CSS</span>
+                        <p class="indent-8">
+                            Pada metode ini, CSS langsung diterapkan pada atribut elemen HTML yang akan diberi gaya. Metode ini umumnya digunakan bila
+                            hanya ada satu atau beberapa elemen yang perlu diatur tampilannya secara cepat.
+                            Metode ini jarang digunakan karena sulit diorganisasi serta menutup pemisahan konten/tampilan. Contoh penerapannya adalah sebagai berikut.
+                        </p>
+
+                        <pre class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg overflow-x-auto">
+                            <code>
+                &lt;p style="color: blue;"&gt;Teks pada paragraf ini berwarna merah.&lt;/p&gt;
+                            </code>
+                        </pre>
+
+                        <p class="indent-8">
+                            Untuk dapat diterapkan, atribut style perlu disertakan pada tag pembuka pada elemen yang ingin diberi gaya dan diikuti dengan 
+                            tanda sama dengan (=), lalu property dan value diapit oleh tanda petik dua ("...").
+                        </p>
+                    </li>
+
+                    <li>
+                        <span class="font-medium">Internal CSS</span>
+                        <p class="indent-8">
+                            Pada metode ini, CSS diterapkan pada bagian head di dokumen HTML yang dibungkus dalam tag &lt;style&gt;. Metode
+                            ini umumnya digunakan untuk halaman web dengan konten yang tidak terlalu banyak. Namun, metode ini
+                            cukup jarang digunakan bila konten dari halaman web cukup banyak karena proses pengaturan menjadi tidak efektif. Kode untuk struktur (HTML) dengan 
+                            kode untuk tampilan (CSS) menjadi dipadatkan dalam satu file. Contoh penerapannya adalah sebagai berikut.
+                        </p>
+
+                        <pre class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg overflow-x-auto">
+                            <code>
+                &lt;head&gt;
+                    &lt;style&gt;
+                        p {
+                            color: green;
+                        }
+                    &lt;/style&gt;
+                &lt;/head&gt;
+                            </code>
+                        </pre>
+                    </li>
+
+                    <li>
+                        <span class="font-medium">Eksternal CSS</span>
+                        <p class="indent-8">
+                            Pada metode ini, CSS diterapkan sebagai file terpisah (dengan ekstensi .css) dari dokumen 
+                            HTML. Metode ini adalah yang paling umum digunakan dalam mengatur tampilan konten karena meningkatkan kebersihan
+                            penulisan kode dengan memisahkan file struktur (HTML) dengan file tampilan (CSS) serta memudahkan proses pengorganisasian jika ada perubahan
+                            yang dilakukan pada waktu yang akan datang. Contoh penerapannya adalah sebagai berikut.
+                        </p>
+
+                        <pre class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg overflow-x-auto">
+                            <code>
+                &lt;head&gt;
+                    &lt;link rel="stylesheet" href="styles.css"&gt;
+                &lt;/head&gt;
+                            </code>
+                        </pre>
+
+                        <p class="indent-8">
+                            Untuk dapat diterapkan, pengaturan gaya pada halaman web dibuat terpisah dalam satu dokumen dengan ekstensi CSS (.css) yang
+                            disimpan pada satu folder yang sama dengan file HTML yang ingin diberi gaya. Kemudian, file CSS tersebut
+                            dihubungkan pada file HTML melalui tag &lt;link&gt; pada bagian head.
+                        </p>       
+                    </li>
+
+                </ul>
+       
+                <h3 class="text-xl font-semibold text-slate-700 dark:text-slate-200 mt-6 mb-3">JavaScript</h3>
+                    <h4 class="text-lg font-semibold text-slate-600 dark:text-slate-300 mt-4 mb-2">Pengenalan JavaScript</h4>
+                    <p class="indent-8">
+                        Ketika web pertama kali diperkenalkan (sekitar tahun 1990-an), halaman web berperan seperti brosur yang hanya berisi teks dan gambar yang tidak dinamis.
+                        Pengguna hanya bisa melihat informasi, bukan berinteraksi dengan halaman tersebut. Seiring berjalannya waktu, halaman web ditujukan agar pengguna tidak hanya sekadar 
+                        membaca informasi, tetapi melakukan interaksi dinamis, seperti menggunakan tombol untuk mengirim data, melihat animasi, dan keperluan interaktif lainnya.
+                        Bahasa HTML yang mengatur struktur halaman web dan CSS yang mengatur tampilan halaman web tidak dapat melakukan hal tersebut. Hal ini dikarenakan bahasa
+                        tersebut tidak sama dengan bahasa pemrograman umum yang memiliki logika untuk mengatur jalannya program. Untuk menangani hal ini, JavaScript diciptakan untuk mendukung proses interaksi
+                        pada halaman web.
+                    </p>
+
+                    <p class="indent-8">
+                        JavaScript memungkinkan halaman web yang berisi teks dan gambar statis menjadi suatu halaman yang dinamis dan dapat merespons interaksi dari pengguna.
+                        Jika halaman web diibaratkan sebagai rumah, JavaScript merupakan sistem yang mengatur operasi yang terjadi dalam rumah tersebut. JavaScript memungkinkan browser menerima 
+                        input tindakan dari pengguna, mengambil data dari server, lalu mengubah tampilan atau jalannya halaman sebagai respons tanpa harus memuat ulang halaman secara keseluruhan.
+                    </p>
+
+                    <p class="indent-8">
+                        Setiap browser modern (seperti Chrome, Firefox, Edge, Safari) memiliki mesin JavaScript bawaan, yaitu semacam otak kecil yang bisa membaca dan menjalankan kode JavaScript pada halaman web, lalu 
+                        mengubah hasilnya menjadi perilaku nyata di browser. Contohnya, yaitu V8 Engine pada Chrome, SpiderMonkey pada Firefox, serta JavaScriptCore pada Safari.
+                    </p>
+
+                    <p class="indent-8">JavaScript dapat dijalankan dengan dua cara utama, yaitu:</p>
+                    <ul class="list-disc list-inside ml-6 space-y-1">
+                        <li>
+                            <span class="font-medium">Langsung di browser (client-side)</span><br>
+                            Secara umum, JavaScript merupakan client-side language yang berarti kodenya dijalankan di sisi pengguna.
+                        </li>
+                        <li>
+                            <span class="font-medium">Di server (server-side)</span><br>
+                            Melalui Node.js, JavaScript dapat dijalankan dari server yang menampung situs web.
+                        </li>
+                    </ul>
+
+                    <h4 class="text-lg font-semibold text-slate-600 dark:text-slate-300 mt-4 mb-2">Metode Implementasi JavaScript pada HTML</h4>
+
+                    <ul class="list-disc list-inside ml-6 space-y-4">
+
+                        <li>
+                            <span class="font-medium">Inline JavaScript</span>
+                            <p class="indent-8">
+                                Pada metode ini, JS langsung diterapkan di dalam tag HTML. Metode ini umumnya digunakan bila
+                                hanya ada satu atau beberapa elemen yang perlu diatur secara cepat.
+                                Metode ini jarang digunakan karena sulit dikelola dan bercampur dengan kode HTML. Contoh penerapannya adalah sebagai berikut.
+                            </p>
+
+                            <pre class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg overflow-x-auto">
+                                <code>
+                    &lt;button onclick="alert('Selamat!')"&gt;Klik di sini&lt;/button&gt;
+                                </code>
+                            </pre>
+
+                            <p class="indent-8">Pada baris kode tersebut:</p>
+                            <ul class="list-disc list-inside ml-6 space-y-1">
+                                <li>Atribut <code>onclick</code> adalah perintah HTML yang dapat diartikan "ketika tombol ini diklik".</li>
+                                <li>Nilai di dalam atribut tersebut merupakan kode JS yang dijalankan saat tombol ditekan, yaitu <code>alert('Selamat!')</code>.</li>
+                            </ul>
+
+                            <p class="indent-8">
+                                Untuk dapat diterapkan, atribut dari elemen yang diatur perlu disertakan pada tag pembuka, 
+                                lalu diikuti property atau value yang diapit oleh tanda petik dua ("...").
+                            </p>
+                        </li>
+
+                        <li>
+                            <span class="font-medium">Internal JavaScript</span>
+                            <p class="indent-8">
+                                Pada metode ini, JS diterapkan pada bagian tertentu yang ingin diatur dinamis pada dokumen HTML.
+                                Kode JavaScript akan dibungkus dalam tag &lt;script&gt;. Penempatan &lt;script&gt; biasanya dilakukan di bagian
+                                bawah &lt;body&gt;, bukan di dalam &lt;head&gt; agar browser dapat memuat semua elemen HTML terlebih dahulu sebelum
+                                JavaScript dijalankan. Metode ini umumnya digunakan untuk halaman web dengan konten yang tidak terlalu banyak. 
+                                Contoh penerapannya adalah sebagai berikut.
+                            </p>
+
+                            <pre class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg overflow-x-auto">
+                                <code>
+                    &lt;body&gt;
+                        &lt;button id="tombol"&gt;Klik di sini&lt;/button&gt;
+                        &lt;script&gt;
+                            document.getElementById("tombol").onclick = function() {
+                                alert("Selamat!");
+                            };
+                        &lt;/script&gt;
+                    &lt;/body&gt;
+                                </code>
+                            </pre>
+
+                            <p class="indent-8">
+                                Browser membaca HTML secara berurutan dari awal hingga akhir sehingga penjalanan kode yang berhubungan dengan pengaturan alur jalannya
+                                halaman web diterapkan pada bagian yang tetap untuk mencegah terjadinya error karena ambiguitas penulisan kode. Kode sumber sebelumnya memiliki alur 
+                                sebagai berikut:
+                            </p>
+
+                            <ol class="list-decimal list-inside ml-6 space-y-1">
+                                <li>Browser membaca HTML dan menemukan tombol dengan <code>id="tombol"</code>.</li>
+                                <li>Browser membaca bagian &lt;script&gt; di bawahnya.</li>
+                                <li>JavaScript mencari tombol tersebut dengan <code>getElementById("tombol")</code> dan menambahkan perilaku (event handler) ketika tombol diklik.</li>
+                                <li>Saat tombol ditekan pengguna, tampilan "Selamat!" akan muncul.</li>
+                            </ol>
+                        </li>
+
+                        <li>
+                            <span class="font-medium">Eksternal JavaScript</span>
+                            <p class="indent-8">
+                                Pada metode ini, JS diterapkan sebagai file terpisah (dengan ekstensi .js) dari dokumen 
+                                HTML. Metode ini adalah yang paling umum digunakan dalam mengatur elemen interaktif pada halaman web karena meningkatkan kebersihan
+                                penulisan kode dengan memisahkan file struktur (HTML) dengan file JS serta memudahkan proses pengorganisasian jika ada perubahan
+                                yang dilakukan pada waktu yang akan datang. Contoh penerapannya adalah sebagai berikut.
+                            </p>
+
+                            <p class="indent-8">Pengaturan elemen interaktif dilakukan dengan membuat file terpisah dari HTML, misalnya <code>script.js</code>:</p>
+
+                            <pre class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg overflow-x-auto">
+                                <code>
+                                    alert("Selamat Pagi!");
+                                </code>
+                            </pre>
+
+                            <p class="indent-8">Penautan file JS dalam file HTML menggunakan tag &lt;script&gt;:</p>
+
+                            <pre class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg overflow-x-auto">
+                                <code>
+                    &lt;body&gt;
+                        &lt;h1&gt;Halo Dunia!&lt;/h1&gt;
+                        &lt;script src="script.js"&gt;&lt;/script&gt;
+                    &lt;/body&gt;
+                                </code>
+                            </pre>
+                        </li>
+
+                    </ul>
+                <h3 class="text-xl font-semibold text-slate-700 dark:text-slate-200 mt-6 mb-3">
+                    Tailwind CSS
+                </h3>
+
+                <h4 class="text-lg font-semibold text-slate-600 dark:text-slate-300 mb-2">
+                    Pengenalan Tailwind CSS
+                </h4>
+
+                <p class="text-justify indent-10">
+                    Dalam mengatur gaya atau tampilan dari suatu halaman web menggunakan CSS, seringkali pemrogram menghabiskan waktu dalam menulis kode yang cukup banyak untuk memberikan styling yang tidak signifikan. Selain itu, 
+                    keperluan untuk membuat file terpisah untuk CSS demi menjaga kebersihan kode terkesan merepotkan bagi beberapa pemrogram. 
+                    Oleh sebab itu, dibentuklah sekumpulan alat bantu atau peraturan siap pakai untuk menulis CSS dengan lebih efisien melalui framework (kerangka kerja).
+                </p>
+
+                <p class="text-justify indent-10">
+                    Untuk melakukan styling pada halaman web, framework Tailwind CSS menyediakan kelas-kelas utilitas kecil yang dapat disusun sendiri untuk 
+                    membuat tampilan sesuai keinginan. Penggunaan framework ini menjadi populer dikarenakan alasan-alasan berikut.
+                </p>
+
+                <ul class="list-disc ml-8 text-justify">
+                    <li>
+                        Lebih cepat dalam membangun tampilan
+                        <br>Hal ini dikarenakan pengguna tidak perlu berpindah ke file CSS untuk melakukan penulisan kode.
+                    </li>
+                    <li>
+                        Lebih fleksibel
+                        <br>Tailwind CSS tidak memaksa pemrogram untuk mengikuti gaya tertentu, tetapi memberikan kebebasan sesuai dengan kebutuhan.
+                    </li>
+                    <li>
+                        Konsisten
+                        <br>Semua kelas pada framework ini sudah punya aturan tersendiri sehingga desain menjadi lebih rapi dan seragam.
+                    </li>
+                </ul>
+
+                <p class="text-justify indent-10">
+                    Tailwind bekerja dengan menggunakan sekumpulan kelas utilitas yang sudah didefinisikan sebelumnya.
+                    Kelas-kelas ini diterapkan langsung pada elemen HTML untuk menentukan tampilannya. Jika dibandingkan dengan menuliskan kode CSS pada file terpisah, penggunaan Tailwind CSS dapat 
+                    menghemat banyak waktu serta meningkatkan efisiensi penulisan kode. Berikut merupakan perbandingannya.
+                </p>
+
+                <p>Penulisan kode CSS pada file terpisah</p>
+                <pre class="bg-slate-100 dark:bg-slate-800 p-3 rounded-md overflow-x-auto">
+                <code>
+                .btn {
+                    background-color: blue;
+                    color: white;
+                    padding: 8px 16px;
+                    border-radius: 6px;
+                }
+                </code>
+                </pre>
+
+                <p>Penulisan kode CSS menggunakan framework pada file HTML</p>
+                <pre class="bg-slate-100 dark:bg-slate-800 p-3 rounded-md overflow-x-auto">
+                <code>
+                &lt;button class="bg-blue-500 text-white px-4 py-2 rounded-md"&gt;
+                    tombol
+                &lt;/button&gt;
+                </code>
+                </pre>
+
+                <p class="text-justify indent-10">
+                    Setiap kelas mewakili satu fungsi kecil pada CSS. Pada kode sumber sebelumnya, kelasnya adalah sebagai berikut.
+                </p>
+
+                <ul class="list-disc ml-8">
+                    <li><code>bg-blue-500</code> berfungsi memberi warna latar biru tingkat 500</li>
+                    <li><code>text-white</code> berfungsi membuat teks berwarna putih</li>
+                    <li><code>px-4</code> dan <code>py-2</code> berfungsi memberi jarak dengan border, yaitu 4 untuk horizontal dan 2 untuk vertikal</li>
+                    <li><code>rounded-md</code> berfungsi membuat sudut elemen agak melengkung</li>
+                </ul>
+
+                <h4 class="text-lg font-semibold text-slate-600 dark:text-slate-300 mb-2">
+                    Pengimplementasian Tailwind CSS pada Pemrograman Web
+                </h4>
+
+                <p class="text-justify indent-10">
+                    Untuk dapat menggunakan Tailwind CSS, pengguna perlu memasang Node.js dan npm terlebih dahulu pada perangkat mereka.
+                    Kemudian, pengguna dapat melakukan penginstalan Tailwind CSS melalui setup produksi. Langkah-langkah pemasangan Tailwind CSS dapat 
+                    dilihat pada artikel berikut →
+                    <a href="https://translate.google.com/translate?u=https://tailwindcss.com/docs&hl=id&sl=en&tl=id&client=srp" class="text-blue-600 underline hover:text-blue-800">
+                        Tutorial Pemasangan Tailwind CSS
+                    </a>
+                </p>
+
+                <h4 class="text-lg font-semibold text-slate-600 dark:text-slate-300 mb-2">
+                    Sintaks Dasar Tailwind CSS
+                </h4>
+
+                <ol class="list-decimal ml-8">
+                    <li>
+                        Konsep Utility-First
+                        <p class="text-justify indent-10">
+                            Tailwind CSS menggunakan konsep <i>utility-first</i>, yaitu penggunaan kelas-kelas kecil (utilities) yang masing-masing
+                            berfungsi untuk satu tugas spesifik. Kelas-kelas tersebut cukup ditambahkan pada elemen HTML 
+                            di dalam atribut <code>class</code>. Contoh penerapannya adalah sebagai berikut.
+                        </p>
+
+                        <pre class="bg-slate-100 dark:bg-slate-800 p-3 rounded-md overflow-x-auto">
+                <code>
+                &lt;p class="bg-blue-200 text-red-500 p-4 rounded-lg"&gt;
+                    Halo Dunia!
+                &lt;/p&gt;
+                </code>
+                        </pre>
+
+                        <p class="text-justify indent-10">
+                            Setiap kelas mewakili satu aturan CSS, misalnya <code>text-red-500</code> memiliki penulisan CSS yang setara dengan
+                            <code>color: #ef4444;</code>. Hal ini berarti kelas tersebut hanya mengatur properti warna teks.
+                        </p>
+                    </li>
+
+                    <li>
+                        Struktur Umum Penulisan Tailwind di HTML
+                        <p class="text-justify indent-10">
+                            Setiap elemen HTML dapat memiliki satu atau lebih utility classes, dipisahkan dengan spasi. Terdapat ratusan kelas kecil pada Tailwind CSS, tetapi 
+                            semuanya diatur dengan sistem penamaan yang logis dan konsisten agar pengguna dapat dengan mudah menebak nama kelas, tanpa membuka dokumentasi. Struktur dasar dari penulisan Tailwind pada HTML adalah sebagai berikut.
+                        </p>
+
+                        <pre class="bg-slate-100 dark:bg-slate-800 p-3 rounded-md overflow-x-auto">
+                <code>
+                &lt;elemen class="utility1 utility2 ... utilityn"&gt;konten&lt;/elemen&gt;
+                </code>
+                        </pre>
+
+                        <p>Setiap kelas memiliki struktur penamaan yang konsisten, biasanya mengikuti pola: <code>kategori-opsi-nilai</code>.</p>
+                        <p>Contohnya: <code>text-blue-500</code></p>
+
+                        <ul class="list-disc ml-8">
+                            <li><code>text</code> adalah kategori yang mengatur warna teks</li>
+                            <li><code>blue</code> adalah opsi yang berupa warna</li>
+                            <li><code>500</code> adalah tingkat kecerahan warna</li>
+                        </ul>
+
+                        <p>Aturan dasar penulisan class atau utility pada tag HTML:</p>
+                        <ul class="list-disc ml-8">
+                            <li>
+                                Urutan kelas tidak berpengaruh pada hasil
+                                <br>Setiap class mewakili properti spesifik yang tidak tumpang tindih sehingga susunan class dapat saling dipertukarkan.
+                            </li>
+                            <li>
+                                Setiap bagian class dipisahkan oleh tanda hubung (-)
+                                <br>Contohnya, yaitu <code>text-gray-600</code>.
+                            </li>
+                            <li>
+                                Tanda titik dua (:) digunakan untuk mendefinisikan state atau kondisi
+                                <br>Contohnya, yaitu <code>hover:bg-blue-700</code>.
+                            </li>
+                            <li>
+                                Kelas dapat dikombinasikan sesuai kebutuhan dengan syarat masih terbaca dan tidak berlebihan.
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+        </section>
+
+        <section id="tata-cara" class="max-w-6xl mx-auto my-10 p-8 bg-white dark:bg-slate-900 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-700 opacity-0 translate-y-4 animate-fadeIn">
+            <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-6">
+                Tata Cara Membuat Website Sederhana
+            </h2>
+
+           <div class="my-8 border-t-2 border-slate-300 dark:border-slate-600 w-1/1 mx-auto"></div> 
+                    <p class="indent-8 text-slate-700 dark:text-slate-200 leading-relaxed">
+                        Pada bagian ini, kita akan mengintegrasikan konsep yang telah dipelajari sebelumnya untuk membangun suatu website sederhana yang berfungsi sebagai kartu
+                        identitas digital. Panduan berikut akan memberikan tata cara pembuatan website tersebut secara bertahap.
+                    </p>
+
+                    <h3 class="text-xl font-semibold text-slate-700 dark:text-slate-200 mt-6 mb-3">
+                        Tahap 1: Persiapan
+                    </h3>
+                    <ol class="list-decimal list-inside text-slate-700 dark:text-slate-200 leading-relaxed">
+                        <li>
+                            Buatlah suatu folder baru untuk menyimpan dokumen-dokumen yang dibutuhkan untuk membuat website.
+                            <br>Misalkan, folder baru tersebut diberi nama "proyek".
+                        </li>
+                        <li>
+                            Siapkan gambar diri sebagai foto profil pada kartu identitas, lalu simpan pada folder "proyek".
+                            Misalkan, foto disimpan sebagai fotodiri.jpg.
+                        </li>
+                    </ol>
+
+                    <h3 class="text-xl font-semibold text-slate-700 dark:text-slate-200 mt-6 mb-3">
+                        Tahap 2: Pembuatan Halaman Web dengan HTML
+                    </h3>
+                    <ol class="list-decimal list-inside text-slate-700 dark:text-slate-200 leading-relaxed">
+                        <li>
+                            Buka IDE, seperti VS Code, untuk mulai melakukan penulisan kode.
+                        </li>
+                        
+                        <li>
+                            Buka folder "proyek", lalu buat file baru dengan ekstensi .html untuk menuliskan kode HTML yang berperan sebagai struktur dasar dari halaman web.
+                            <br>Misalkan, file baru tersebut diberi nama "kartu.html".
+                        </li>
+                        
+                        <li>
+                            Susun struktur dasar dari HTML dan tuliskan judul dari proyek pada tag &lt;title&gt;, misalnya judulnya adalah Kartu Identitas.
+                            <pre class="bg-slate-100 dark:bg-slate-800 p-3 rounded-xl overflow-x-auto mt-2">
+                    <code class="text-sm">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html lang="id"&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="UTF-8"&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                            &lt;title&gt;Kartu Identitas&lt;/title&gt;
+                        &lt;/head&gt;
+
+                        &lt;body&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                    </code>
+                            </pre>
+                        </li>
+
+                        <li>
+                            Pada bagian dalam body, tuliskan tag &lt;main&gt; untuk menunjukkan area utama halaman web. Kemudian,
+                            masukkan tag &lt;section&gt; untuk membungkus area kartu identitas.
+                            <pre class="bg-slate-100 dark:bg-slate-800 p-3 rounded-xl overflow-x-auto mt-2">
+                    <code class="text-sm">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html lang="id"&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="UTF-8"&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                            &lt;title&gt;Kartu Identitas&lt;/title&gt;
+                        &lt;/head&gt;
+
+                        &lt;body&gt;
+                            &lt;main&gt;
+                                &lt;section id="kartuProfil" aria-labelledby="profile-name"&gt;
+                                &lt;/section&gt;
+                            &lt;/main&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                    </code>
+                            </pre>
+                        </li>
+
+                        <li>
+                            Buat tag &lt;div&gt; di dalam &lt;section&gt; untuk membungkus area pembuka atau kepala
+                            kartu yang berisikan:
+                            <ul class="list-disc list-inside ml-6">
+                                <li>Tag &lt;img&gt; yang akan memuat foto profil.</li>
+                                <li>Tag &lt;div id="profile-name"&gt; yang memuat identitas, seperti nama pengguna dan keterangan singkat.</li>
+                            </ul>
+                            <pre class="bg-slate-100 dark:bg-slate-800 p-3 rounded-xl overflow-x-auto mt-2">
+                    <code class="text-sm">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html lang="id"&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="UTF-8"&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                            &lt;title&gt;Kartu Identitas&lt;/title&gt;
+                        &lt;/head&gt;
+
+                        &lt;body&gt;
+                            &lt;main&gt;
+                                &lt;section id="profileCard" aria-labelledby="profile-name"&gt;
+                                    &lt;div&gt;
+                                        &lt;img
+                                            id="profileImage"
+                                            src="fotodiri.jpg"
+                                            alt="Foto Profil"
+                                            width="96"
+                                            height="96"
+                                        &gt;
+                                    
+                                        &lt;div id="profile-name"&gt;
+                                            &lt;h1 id="profile-name"&gt;Nama&lt;/h1&gt;
+                                            &lt;p id="profile-subtitle"&gt;Pelajar - Medan&lt;/p&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/section&gt;
+                            &lt;/main&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                    </code>
+                            </pre>
+                        </li>
+
+                        <li>
+                            Buat paragraf isi (teks singkat) dari kartu identitas yang dibungkus dengan tag &lt;div&gt; serta ditempatkan di bawah bagian kepala kartu sebelumnya.
+                            <pre class="bg-slate-100 dark:bg-slate-800 p-3 rounded-xl overflow-x-auto mt-2">
+                    <code class="text-sm">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html lang="id"&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="UTF-8"&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                            &lt;title&gt;Kartu Identitas&lt;/title&gt;
+                        &lt;/head&gt;
+
+                        &lt;body&gt;
+                            &lt;main&gt;
+                                &lt;section id="profileCard" aria-labelledby="profile-name"&gt;
+                                    &lt;div&gt;
+                                        &lt;img
+                                            id="profileImage"
+                                            src="fotodiri.jpg"
+                                            alt="Foto Profil"
+                                            width="96"
+                                            height="96"
+                                        &gt;
+                                    
+                                        &lt;div id="profile-name"&gt;
+                                            &lt;h1 id="profile-name"&gt;Nama&lt;/h1&gt;
+                                            &lt;p id="profile-subtitle"&gt;Pelajar - Medan&lt;/p&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+
+                                    &lt;div&gt;
+                                        &lt;p&gt;
+                                            Hai, saya sedang belajar membuat website sederhana. Website ini dibentuk sebagai 
+                                            kartu identitas yang mengintegrasikan HTML, CSS, dan JavaScript.
+                                        &lt;/p&gt;
+                                    &lt;/div&gt;
+                                &lt;/section&gt;
+                            &lt;/main&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                    </code>
+                            </pre>
+                        </li>
+
+                        <li>
+                            Buat bagian bawah dari kartu identitas. Bagian tersebut dibungkus dengan tag &lt;div&gt; yang berisikan:
+                            <ul class="list-disc list-inside ml-6">
+                                <li>&lt;button&gt;, yaitu tombol yang digunakan untuk mengubah tema dari kartu menjadi gelap.</li>
+                            </ul>
+                            <pre class="bg-slate-100 dark:bg-slate-800 p-3 rounded-xl overflow-x-auto mt-2">
+                    <code class="text-sm">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html lang="id"&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="UTF-8"&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                            &lt;title&gt;Kartu Identitas&lt;/title&gt;
+                        &lt;/head&gt;
+
+                        &lt;body&gt;
+                            &lt;main&gt;
+                                &lt;section id="profileCard" aria-labelledby="profile-name"&gt;
+                                    &lt;div&gt;
+                                        &lt;img
+                                            id="profileImage"
+                                            src="fotodiri.jpg"
+                                            alt="Foto Profil"
+                                            width="96"
+                                            height="96"
+                                        &gt;
+                                    
+                                        &lt;div id="profile-name"&gt;
+                                            &lt;h1 id="profile-name"&gt;Nama&lt;/h1&gt;
+                                            &lt;p id="profile-subtitle"&gt;Pelajar - Medan&lt;/p&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+
+                                    &lt;div&gt;
+                                        &lt;p&gt;
+                                            Hai, saya sedang belajar membuat website sederhana. Website ini dibentuk sebagai 
+                                            kartu identitas yang mengintegrasikan HTML, CSS, dan JavaScript.
+                                        &lt;/p&gt;
+                                    &lt;/div&gt;
+
+                                    &lt;div&gt;
+                                        &lt;button id="themeButton"&gt;
+                                            Ubah Tema
+                                        &lt;/button&gt;
+                                    &lt;/div&gt;
+                                &lt;/section&gt;
+                            &lt;/main&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                    </code>
+                            </pre>
+                        </li>
+
+                        <li>
+                            Simpan file tersebut, lalu buka di browser untuk memastikan struktur dasar dari halaman web sudah terbentuk dengan benar.
+                            <br>Jika penulisan kode HTML sudah sesuai, browser akan menampilkan halaman yang berisikan struktur dasar dari kartu identitas sebagai berikut.
+                            <br>
+                            <img src="tahap2.png" alt="Tampilan Halaman Web pada Tahap 2" class="rounded-xl mt-3 max-w-full h-auto mx-auto border border-slate-300 dark:border-slate-700">
+                        </li>
+                    </ol>
+
+                <h3 class="text-xl font-semibold text-slate-700 dark:text-slate-200 mt-6 mb-3">
+                    Tahap 3: Pengaturan Tampilan Halaman Web dengan Tailwind CSS
+                </h3>
+
+                <ol class="list-decimal list-inside text-slate-700 dark:text-slate-300 space-y-4">
+                    <li>Pengaturan tampilan akan dilakukan dengan menggunakan framework Tailwind CSS. 
+                        Untuk dapat mengakses framework Tailwind secara langsung, sisipkan kode berikut di dalam 
+                        &lt;head&gt; untuk memungkinkan akses library Tailwind CSS dari server online.
+
+                        <div class="bg-slate-100 border border-slate-300 rounded-lg p-3 mt-2 overflow-x-auto">
+                        <pre class="whitespace-pre-wrap text-sm text-slate-800">
+                        <code>&lt;head&gt;
+                            &lt;meta charset="UTF-8"&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                            &lt;title&gt;Kartu Identitas&lt;/title&gt;
+                            &lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+                        &lt;/head&gt;
+                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+
+                            <li>Atur tampilan latar belakang utama serta susunan konten dari halaman web dengan menambahkan class berikut pada tag &lt;body&gt;.
+
+                                <div class="bg-slate-100 border border-slate-300 rounded-lg p-3 mt-2 overflow-x-auto">
+                                    <pre class="whitespace-pre-wrap text-sm text-slate-800">
+                        <code>&lt;body class="bg-slate-100 min-h-screen flex items-center justify-center p-6"&gt;</code>
+                                    </pre>
+                                </div>
+                            </li>
+
+                            <li>Atur bentuk dari area utama serta warna kartu identitas dengan menambahkan class berikut pada 
+                                &lt;section id="profileCard"&gt;.
+
+                                <div class="bg-slate-100 border border-slate-300 rounded-lg p-3 mt-2 overflow-x-auto">
+                                    <pre class="whitespace-pre-wrap text-sm text-slate-800">
+                        <code>&lt;section id="profileCard" class="bg-white rounded-2xl shadow-lg overflow-hidden transition-colors duration-300"&gt;</code>
+                                    </pre>
+                                </div>
+                            </li>
+
+                            <li>Atur bagian kepala kartu, yang berisikan gambar dan nama, dengan menambahkan class berikut pada tag &lt;div&gt; yang membungkus komponen tersebut.
+
+                                <div class="bg-slate-100 border border-slate-300 rounded-lg p-3 mt-2 overflow-x-auto">
+                                    <pre class="whitespace-pre-wrap text-sm text-slate-800">
+                        <code>&lt;div class="flex items-center gap-4 p-6"&gt;
+                            &lt;img
+                                src="fotodiri.jpg"
+                                alt="Foto profil"
+                                class="w-24 h-24 rounded-full object-cover border-2 border-slate-200"
+                            &gt;
+                            &lt;div&gt;
+                                &lt;h1 id="profile-name" class="text-xl font-semibold text-slate-800"&gt;Nama&lt;/h1&gt;
+                                &lt;p class="text-sm text-slate-500"&gt;Pelajar - Medan&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+
+                            <li>Atur susunan deskripsi dari kartu identitas dengan menambahkan class berikut pada tag &lt;div&gt; yang membungkus komponen tersebut.
+
+                                <div class="bg-slate-100 border border-slate-300 rounded-lg p-3 mt-2 overflow-x-auto">
+                                    <pre class="whitespace-pre-wrap text-sm text-slate-800">
+                        <code>&lt;div class="px-6 pb-6"&gt;
+                            &lt;p class="text-slate-600 text-sm leading-relaxed"&gt;
+                                Hai, saya sedang belajar membuat website sederhana. Website ini dibentuk sebagai 
+                                kartu identitas yang mengintegrasikan HTML, CSS, dan JavaScript.
+                            &lt;/p&gt;
+                        &lt;/div&gt;
+                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+
+                            <li>Atur bentuk dari tombol aksi (Ubah Tema) yang digunakan untuk mengubah tema kartu dengan menambahkan class berikut pada tag &lt;div&gt; yang membungkus komponen tersebut.
+
+                                <div class="bg-slate-100 border border-slate-300 rounded-lg p-3 mt-2 overflow-x-auto">
+                                    <pre class="whitespace-pre-wrap text-sm text-slate-800">
+                        <code>&lt;div class="px-6 pb-6 flex gap-3"&gt;
+                            &lt;button
+                                id="themeButton"
+                                class="flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg 
+                                        shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 transition"
+                                type="button"
+                            &gt;
+                                Ubah Tema
+                            &lt;/button&gt;
+                        &lt;/div&gt;
+                        </code>
+                                    </pre>
+                                </div>
+                            </li>
+
+                            <li>Simpan file tersebut, lalu jalankan di browser untuk memastikan struktur dan tampilan kartu identitas sudah sesuai.
+                                Jika penulisan Tailwind CSS sudah sesuai, browser akan menampilkan halaman yang berisikan kartu identitas sebagai berikut.
+
+                                <div class="flex justify-center mt-3">
+                                    <img src="tahap3.png" alt="Tampilan Halaman Web pada Tahap 3" class="max-w-full rounded-lg border border-slate-300 shadow-md">
+                                </div>
+                            </li>
+                        </ol>
+
+                    <h3 class="text-xl font-semibold text-slate-700 dark:text-slate-200 mt-6 mb-3">
+                        Tahap 4: Pengintegrasian JavaScript
+                    </h3>
+
+                    <ol class="list-decimal list-inside text-slate-700 dark:text-slate-300 space-y-4">
+
+                        <li>Kartu identitas sudah terbentuk pada tahap sebelumnya. Namun, interaksi dengan tombol "Ubah Tema" belum dapat digunakan karena
+                            belum ada kode JS yang memungkinkan interaktivitas. Untuk itu, buat file baru dengan ekstensi .js pada folder yang sama dengan file HTML sebelumnya, misalnya nama file tersebut adalah script.js. Kemudian, untuk 
+                            menghubungkan file HTML dengan JavaScript, tautkan file JS sebelum tag &lt;/body&gt; untuk memungkinkan browser membaca kode secara keseluruhan sebelum melakukan eksekusi logika.
+
+                            <div class="bg-slate-100 border border-slate-300 rounded-lg p-3 mt-2 overflow-x-auto">
+                                <pre class="whitespace-pre-wrap text-sm text-slate-800">
+                    <code>&lt;script src="script.js"&gt;&lt;/script&gt;
+                    &lt;/body&gt;
+                    </code>
+                                </pre>
+                            </div>
+                        </li>
+
+                        <li>Ambil elemen tombol, kepala kartu, beserta teks dari halaman HTML menggunakan fungsi document.getElementById.
+
+                            <div class="bg-slate-100 border border-slate-300 rounded-lg p-3 mt-2 overflow-x-auto">
+                                <pre class="whitespace-pre-wrap text-sm text-slate-800">
+                    <code>const themeButton = document.getElementById("themeButton");
+                    const profileCard = document.getElementById("profileCard");
+                    const textElements = profileCard.querySelectorAll("h1, p");
+                    </code>
+                                </pre>
+                            </div>
+                        </li>
+
+                        <li>Tambahkan fungsi antisipasi ketika pengguna menekan tombol "Ubah Tema" untuk mengaktifkan mode gelap.
+
+                            <div class="bg-slate-100 border border-slate-300 rounded-lg p-3 mt-2 overflow-x-auto">
+                                <pre class="whitespace-pre-wrap text-sm text-slate-800">
+                    <code>function enableDarkMode() {
+                        profileCard.classList.remove("bg-white", "text-slate-800");
+                        profileCard.classList.add("bg-slate-800", "text-white");
+
+                        textElements.forEach((el) => {
+                            el.classList.remove("text-slate-800", "text-slate-600", "text-slate-500");
+                            el.classList.add("text-slate-200");
+                        });
+
+                        themeButton.setAttribute("aria-pressed", "true");
+                    }
+                    </code>
+                                </pre>
+                            </div>
+                        </li>
+
+                        <li>Tambahkan fungsi antisipasi ketika pengguna menekan tombol "Ubah Tema" untuk menonaktifkan mode gelap.
+
+                            <div class="bg-slate-100 border border-slate-300 rounded-lg p-3 mt-2 overflow-x-auto">
+                                <pre class="whitespace-pre-wrap text-sm text-slate-800">
+                    <code>function disableDarkMode() {
+                        profileCard.classList.remove("bg-slate-800", "text-white");
+                        profileCard.classList.add("bg-white", "text-slate-800");
+
+                        const allTexts = profileCard.querySelectorAll("h1, p");
+                        allTexts.forEach((el) => {
+                            el.classList.remove("text-slate-200");
+                        });
+
+                        profileCard.querySelector("#profile-name").classList.add("text-slate-800");
+                        profileCard.querySelectorAll("p")[0].classList.add("text-slate-500");
+                        profileCard.querySelectorAll("p")[1].classList.add("text-slate-600");
+
+                        themeButton.setAttribute("aria-pressed", "false");
+                    }
+                    </code>
+                                </pre>
+                            </div>
+                        </li>
+
+                        <li>Tambahkan blok seleksi dengan menyimpan tema terakhir yang digunakan untuk mengantisipasi pengaktifan atau penonaktifan mode gelap. Lalu, gunakan input klik sebagai 
+                            permintaan untuk mengakses mode gelap atau menonaktifkannya.
+
+                            <div class="bg-slate-100 border border-slate-300 rounded-lg p-3 mt-2 overflow-x-auto">
+                                <pre class="whitespace-pre-wrap text-sm text-slate-800">
+                    <code>const savedTheme = localStorage.getItem("profileTheme");
+                    if (savedTheme === "dark") {
+                        enableDarkMode();
+                    } else {
+                        disableDarkMode();
+                    }
+
+                    themeButton.addEventListener("click", () => {
+                        const isDark = profileCard.classList.contains("bg-slate-800");
+                        if (isDark) {
+                            disableDarkMode();
+                            localStorage.setItem("profileTheme", "light");
+                        } else {
+                            enableDarkMode();
+                            localStorage.setItem("profileTheme", "dark");
+                        }
+                    });
+                    </code>
+                                </pre>
+                            </div>
+                        </li>
+
+                        <li>Setelah fitur mode gelap ditambahkan, CSS perlu mengatur tampilan teks agar tetap terbaca ketika mode gelap digunakan.
+                            Untuk itu, tambahkan inisiasi berikut yang dibungkus dengan tag &lt;style&gt; serta ditempatkan pada bagian dalam &lt;head&gt; di file HTML.
+
+                            <div class="bg-slate-100 border border-slate-300 rounded-lg p-3 mt-2 overflow-x-auto">
+                                <pre class="whitespace-pre-wrap text-sm text-slate-800">
+                    <code>&lt;head&gt;
+                        &lt;meta charset="UTF-8"&gt;
+                        &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                        &lt;title&gt;Kartu Identitas&lt;/title&gt;
+                        &lt;style&gt;
+                            .dark-mode p {
+                                color: #cbd5e1;
+                            } 
+                        &lt;/style&gt;
+                    &lt;/head&gt;
+                    </code>
+                                </pre>
+                            </div>
+                        </li>
+
+                        <li>Secara keseluruhan, setelah semua tahap sebelumnya selesai dilakukan susunan kode pada dokumen HTML dan JavaScript adalah sebagai berikut.
+                            <ul class="list-disc list-inside space-y-2 mt-2">
+                                <li>Dokumen HTML (kartu.html)
+                                    <div class="bg-slate-100 border border-slate-300 rounded-lg p-3 mt-2 overflow-x-auto">
+                                        <pre class="whitespace-pre-wrap text-sm text-slate-800">
+                    <code>&lt;!DOCTYPE html&gt;
+                    &lt;html lang="id"&gt;
+                    &lt;head&gt;
+                        &lt;meta charset="UTF-8" /&gt;
+                        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+                        &lt;title&gt;Kartu Identitas&lt;/title&gt;
+                        &lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+                        &lt;style&gt;
+                        .dark-mode p {
+                            color: #cbd5e1;
+                        }
+                        &lt;/style&gt;
+                    &lt;/head&gt;
+
+                    &lt;body class="bg-slate-100 min-h-screen flex items-center justify-center p-6"&gt;
+
+                        &lt;main class="w-full max-w-sm"&gt;
+                            &lt;section
+                                id="profileCard"
+                                class="bg-white rounded-2xl shadow-lg overflow-hidden transition-colors duration-300"
+                                aria-labelledby="profile-name"
+                            &gt;
+
+                                &lt;div class="flex items-center gap-4 p-6"&gt;
+                                    &lt;img
+                                        src="fotodiri.jpg"
+                                        alt="Foto profil Nama Pengguna"
+                                        class="w-24 h-24 rounded-full object-cover border-2 border-slate-200"
+                                    &gt;
+                                    &lt;div&gt;
+                                        &lt;h1 id="profile-name" class="text-xl font-semibold text-slate-800"&gt;Nama&lt;/h1&gt;
+                                        &lt;p class="text-sm text-slate-500"&gt;Pelajar - Medan&lt;/p&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+
+                                &lt;div class="px-6 pb-6"&gt;
+                                    &lt;p class="text-slate-600 text-sm leading-relaxed"&gt;
+                                        Hai, saya sedang belajar membuat website sederhana. Website ini dibentuk sebagai 
+                                        kartu identitas yang mengintegrasikan HTML, CSS, dan JavaScript.
+                                    &lt;/p&gt;
+                                &lt;/div&gt;
+
+                                &lt;div class="px-6 pb-6 flex gap-3"&gt;
+                                    &lt;button
+                                        id="themeButton"
+                                        class="flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg shadow-sm hover:bg-indigo-700 
+                                            focus:outline-none focus:ring-2 focus:ring-indigo-300 transition"
+                                        type="button"
+                                    &gt;
+                                        Ubah Tema
+                                    &lt;/button&gt;
+                                &lt;/div&gt;
+
+                            &lt;/section&gt;
+                        &lt;/main&gt;
+                        
+                        &lt;script src="scripttes.js"&gt;&lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;
+                    </code>
+                                        </pre>
+                                    </div>
+                                </li>
+
+                                <li>Dokumen JavaScript (script.js)
+                                    <div class="bg-slate-100 border border-slate-300 rounded-lg p-3 mt-2 overflow-x-auto">
+                                        <pre class="whitespace-pre-wrap text-sm text-slate-800">
+                    <code>const themeButton = document.getElementById("themeButton");
+                    const profileCard = document.getElementById("profileCard");
+                    const textElements = profileCard.querySelectorAll("h1, p");
+
+                    function enableDarkMode() {
+                        profileCard.classList.remove("bg-white", "text-slate-800");
+                        profileCard.classList.add("bg-slate-800", "text-white");
+
+                        textElements.forEach((el) => {
+                            el.classList.remove("text-slate-800", "text-slate-600", "text-slate-500");
+                            el.classList.add("text-slate-200");
+                        });
+
+                        themeButton.setAttribute("aria-pressed", "true");
+                    }
+
+                    function disableDarkMode() {
+                        profileCard.classList.remove("bg-slate-800", "text-white");
+                        profileCard.classList.add("bg-white", "text-slate-800");
+
+                        const allTexts = profileCard.querySelectorAll("h1, p");
+                        allTexts.forEach((el) => {
+                            el.classList.remove("text-slate-200");
+                        });
+
+                        profileCard.querySelector("#profile-name").classList.add("text-slate-800");
+                        profileCard.querySelectorAll("p")[0].classList.add("text-slate-500");
+                        profileCard.querySelectorAll("p")[1].classList.add("text-slate-600");
+
+                        themeButton.setAttribute("aria-pressed", "false");
+                    }
+
+                    const savedTheme = localStorage.getItem("profileTheme");
+                    if (savedTheme === "dark") {
+                        enableDarkMode();
+                    } else {
+                        disableDarkMode();
+                    }
+
+                    themeButton.addEventListener("click", () => {
+                        const isDark = profileCard.classList.contains("bg-slate-800");
+                        if (isDark) {
+                            disableDarkMode();
+                            localStorage.setItem("profileTheme", "light");
+                        } else {
+                            enableDarkMode();
+                            localStorage.setItem("profileTheme", "dark");
+                        }
+                    });
+                    </code>
+                                        </pre>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>Simpan file, lalu jalankan file HTML di browser untuk memastikan tampilan kartu identitas serta proses interaksi ketika tombol ditekan sudah sesuai.
+                            Jika penulisan kode sudah sesuai, browser akan menampilkan halaman berikut ketika tombol "Ubah Tema" ditekan atau mengaktifkan mode gelap.
+
+                            <div class="flex justify-center mt-3">
+                                <img src="tahap4.png" alt="Tampilan Halaman Web pada Tahap 4" class="max-w-full rounded-lg border border-slate-300 shadow-md">
+                            </div>
+                        </li>
+
+                    </ol>
+
+    </section>
+
+    <section id="kesan-pesan" class="max-w-6xl mx-auto my-10 p-8 bg-white dark:bg-slate-900 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-700 opacity-0 translate-y-4 animate-fadeIn">
+        <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-6">
+        Kesan dan Pesan dalam Belajar Pemrograman Web
+    </h2>
+
+    <div class="my-8 border-t-2 border-slate-300 dark:border-slate-600 w-1/1 mx-auto">
+    </div>
+
+    <div class="space-y-4 text-slate-700 dark:text-slate-300 leading-relaxed text-justify">
+        <p class="indent-8">
+            Pada awal kegiatan pembelajaran pemrograman web, saya segera menyadari rendahnya pengetahuan saya mengenai web, meskipun saya
+                    secara tidak langsung sering berinteraksi dengan layanan internet tersebut dan merupakan mahasiswa prodi Ilmu Komputer.
+                    Proses pembelajaran di awal terkesan mudah, tetapi ketika didalami, saya merasa topik pemrograman web ternyata benar-benar kompleks dan cukup sulit. Mulai dari pembelajaran HTML untuk membangun
+                    struktur dasar web, mengatur tampilan halaman menggunakan CSS, serta peningkatan interaktivitas melalui JavaScript. Saya semakin menyadari betapa rumitnya
+                    membangun suatu halaman web yang terkesan sederhana sekalipun.</p>
+        
+        <p class="indent-8"> 
+            Namun, selama melakukan pembelajaran secara bertahap, saya semakin tertarik dan terhibur dalam melakukan pemrograman web. Hal ini dikarenakan
+             setiap baris kode yang saya tulis menghasilkan produk yang langsung dapat dilihat dan digunakan, meskipun penggunaanya terbatas. Pembelajaran pemrograman web terkesan berbeda dengan pembelajaran topik-topik
+             pada Ilmu Komputer yang saya pelajari sebelumnya, yang secara umum berpusat pada proses kalkulasi serta pengaturan alur jalannya program.
+             Selain itu, saya berkesempatan menambah pengetahuan saya mengenai proses yang dilalui browser untuk dapat menampilkan halaman web yang dapat dimengerti oleh manusia.
+             Dengan melakukan pembelajaran ini, saya juga berupaya untuk menjadi lebih kreatif dalam menciptakan halaman web yang tidak hanya tepat guna, tetapi juga menarik.
+           
+        <p class="indent-8"> 
+            Secara keseluruhan, pembelajaran topik ini memberi saya pandangan baru dalam kegiaan pemrograman. Saya menjadi semakin memahami bahwa
+            produk teknologi tidak hanya ditujukan untuk kalangan tertentu yang sudah paham dengan teknologi tersebut, tetapi juga untuk orang awam yang belum mengenal teknologi
+            dengan baik sekalipun. Oleh sebab itu, produk teknologi, seperti website, perlu memiliki struktur yang benar sekaligus memiliki desain yang estetis. Dengan berbekal wawasan yang baru tersebut, saya semakin semangat 
+            dalam mempelajari pemrograman web lebih dalam lagi dan berbagai kegiatan yang berhubungan dengan pemrograman lainnya.</p>
+    </div>
+    </section>
+    </main>
+
+    <script src="scriptpro.js"></script>
+</body>
+</html>
